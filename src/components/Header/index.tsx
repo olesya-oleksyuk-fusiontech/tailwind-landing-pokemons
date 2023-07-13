@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             &#9776;
           </button>
           <nav className="hidden space-x-8 text-xl sm:block" aria-label="main">
-            <a href="#pockemon" className="hover:opacity-80">
+            <a href="#pokemons" className="hover:opacity-80">
               {HEADER.LINK.POKEMON}
             </a>
             <a href="#testimonials" className="hover:opacity-80">
