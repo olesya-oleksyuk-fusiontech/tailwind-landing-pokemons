@@ -3,10 +3,11 @@ import Header from '@/components/Header';
 
 const Layout: React.FC<React.PropsWithChildren> = (props) => {
   const { children } = props;
+
   return (
     <>
       <Header />
-      {children}
+      <main className="mx-auto max-w-4xl">{children}</main>
     </>
   );
 };
