@@ -1,14 +1,17 @@
+import clsx from 'clsx';
+import React from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
+
 import Head from 'next/head';
 import Layout from '@/components/Layout';
-import clsx from 'clsx';
-import rocketDab from '../../public/images/rocketdab.png';
-import React from 'react';
 import Card from '@/components/Card';
+
+import rocketDab from '../../public/images/rocketdab.png';
 import rocketMan from '../../public/images/rocketman.png';
 import rocketRide from '../../public/images/rocketride.png';
 import rocketLaunch from '../../public/images/rocketlaunch.png';
+import Divider from '@/components/Divider';
 
 const inter = Inter({ subsets: ['latin'] });
 const siteTitle = 'Pokemon Landing';
@@ -22,6 +25,7 @@ const rocketsData = [
       src: rocketMan,
       alt: 'Explorer',
     },
+    count: 0,
   },
   {
     name: 'Adventurer',
@@ -31,6 +35,7 @@ const rocketsData = [
       src: rocketRide,
       alt: 'Adventurer',
     },
+    count: 20,
   },
   {
     name: 'Infinity',
@@ -40,13 +45,20 @@ const rocketsData = [
       src: rocketLaunch,
       alt: 'Infinity',
     },
+    count: 10,
   },
 ];
 
 export default function Home() {
   const renderRocketsData = () => {
-    return rocketsData.map(({ name, description, price, img }) => (
-      <Card title={name} description={description} subtitle={price} img={img} />
+    return rocketsData.map(({ name, description, price, img, count }) => (
+      <Card
+        title={name}
+        description={description}
+        subtitle={price}
+        img={img}
+        isUnavailable={!count}
+      />
     ));
   };
 
@@ -98,9 +110,9 @@ export default function Home() {
           <Image className="w-1/2" src={rocketDab} alt="Rocket Dab" />
         </section>
 
-        <hr className="mx-auto w-1/2 bg-black dark:bg-white" />
+        <Divider className="w-1/2" />
 
-        <section id="pokemons" className="my-12 scroll-mt-20 p-6">
+        <section id="rockets" className="my-12 scroll-mt-20 p-6">
           <h2 className="mb-6 text-center text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
             Our Rockets
           </h2>

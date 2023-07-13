@@ -1,29 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 const HEADER = {
-  TITLE: '⚡️ Pokemon Landing',
+  TITLE: '⚡️ Rockets Landing',
   LINK: {
-    POKEMON: 'Our Pockemons',
+    ROCKETS: 'Our Rockets',
     TESTIMONIALS: 'Testimonials',
     CONTACT_US: 'Contact Us',
   },
 };
 
-const Footer: React.FC = () => {
+const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-10 bg-teal-700 text-white">
+    <header className={clsx('sticky top-0 z-10 bg-teal-700 text-white')}>
       <section className="mx-auto flex max-w-4xl items-center justify-between p-4">
         <Link href="#hero">
           <h1 className="text-4xl font-medium">{HEADER.TITLE}</h1>
         </Link>
         <div>
           <button className="text-3xl focus:outline-none sm:hidden">
-            &#9776;
+            &#9776;"sticky top-0 z-10 bg-teal-700 text-white"
           </button>
           <nav className="hidden space-x-8 text-xl sm:block" aria-label="main">
-            <a href="#pokemons" className="hover:opacity-80">
-              {HEADER.LINK.POKEMON}
+            <a href="#rockets" className="hover:opacity-80">
+              {HEADER.LINK.ROCKETS}
             </a>
             <a href="#testimonials" className="hover:opacity-80">
               {HEADER.LINK.TESTIMONIALS}
@@ -38,4 +39,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default Header;
