@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 
 import Head from 'next/head';
 import Layout from '@/components/Layout';
@@ -13,8 +12,7 @@ import rocketRide from '../../public/images/rocketride.png';
 import rocketLaunch from '../../public/images/rocketlaunch.png';
 import Divider from '@/components/Divider';
 
-const inter = Inter({ subsets: ['latin'] });
-const siteTitle = 'Pokemon Landing';
+const siteTitle = 'Rockets Landing';
 
 const rocketsData = [
   {
@@ -83,20 +81,21 @@ export default function Home() {
                 'sm:text-left sm:text-5xl',
               )}
             >
-              We Boldy Go{' '}
+              Fortune favours{' '}
               <span className="text-indigo-700 dark:text-indigo-300">
-                Where No Rocket{' '}
+                The Bold -{' '}
               </span>
-              Has Gone Before...
+              <br />
+              fortis fortuna adiuvat
             </h2>
             <p
               className={clsx(
-                'mt-4 max-w-md text-center text-2xl text-slate-700 dark:text-slate-400',
+                'mt-2.5 max-w-md text-center text-2xl text-slate-700 dark:text-slate-400',
                 'sm:text-left',
               )}
             >
-              We're building rockets or the next century today. From the moon to
-              Mars, Jupiter and beyond...
+              Boldness is the beginning of action, but fortune controls how it
+              ends
             </p>
             <p
               className={clsx(
@@ -104,7 +103,7 @@ export default function Home() {
                 'sm:text-left',
               )}
             >
-              Think Acme Rockets.
+              Think like Democritus.
             </p>
           </article>
           <Image className="w-1/2" src={rocketDab} alt="Rocket Dab" />
