@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { POKEMON } = require('./src/styles/customColors');
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,9 +14,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        pokemon: {
-          DEFAULT: '#faca0c',
-        },
+        ...POKEMON,
       },
     },
   },

@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Header from '@/components/Header';
+import { POKEMON } from '@/styles/customColors';
 
 const Layout: React.FC<React.PropsWithChildren> = (props) => {
   const { children } = props;
@@ -10,10 +11,10 @@ const Layout: React.FC<React.PropsWithChildren> = (props) => {
 
   React.useEffect(() => {
     if (pathname === '/pokemons/find') {
-      document.body.classList.add('bg-pokemon');
+      document.body.style.backgroundColor = POKEMON.pokemon.DEFAULT;
     }
     return () => {
-      document.body.classList.remove('bg-pokemon'); // Reset the body color
+      document.body.style.backgroundColor = ''; // Reset the body color
     };
   }, []);
 
