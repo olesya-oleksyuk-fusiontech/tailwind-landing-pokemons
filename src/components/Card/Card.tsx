@@ -36,7 +36,7 @@ const Card: React.FC<
   );
   return (
     <li className={cardClasses}>
-      <Image src={img.src} alt={img.alt} className="mb-6 w-1/2" />
+      <Image src={img.src} alt={img.alt} className="mb-6 w-1/2 p-1" />
       <h3
         className={clsx(
           'text-center',
