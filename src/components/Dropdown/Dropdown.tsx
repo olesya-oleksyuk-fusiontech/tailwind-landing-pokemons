@@ -1,20 +1,23 @@
 import React from 'react';
 import clsx from 'clsx';
 
-interface DropdownProps<T extends string> {
-  options: T[];
-  onOptionSelect: (element: T) => void;
+interface DropdownProps<T extends readonly string[]> {
+  options: T;
+  onOptionSelect: (option: T[number]) => void;
+  isSelected?: boolean;
 }
 
-const generateClassList = (isActive: boolean) => {
+const generateClassList = (isActive: boolean, isSelected: boolean) => {
   const button = clsx(
     'w-fit justify-center px-4 py-2',
-    'rounded-md border-2 border-transparent',
+    'rounded-md border-2',
     'transition duration-150 ease-in-out',
     'focus:border-blue-300 focus:shadow-blue-400 focus:outline-none',
-    'hover:border-2 hover:border-amber-200 hover:shadow-amber-200 hover:outline-none focus:border',
+    'hover:border-2 hover:border-pokemon hover:shadow-amber-200 hover:outline-none focus:border',
     'active:text-amber-200',
-    isActive && 'border-dashed border-amber-200',
+    isActive || isSelected
+      ? 'border-dashed border-pokemon'
+      : 'border-transparent',
   );
 
   const container = clsx(
@@ -42,15 +45,15 @@ const generateClassList = (isActive: boolean) => {
   };
 };
 
-const Dropdown: React.FC<DropdownProps<string> & React.PropsWithChildren> = (
-  props,
-) => {
-  const { options, onOptionSelect, children } = props;
+const Dropdown: React.FC<
+  DropdownProps<readonly string[]> & React.PropsWithChildren
+> = (props) => {
+  const { options, onOptionSelect, children, isSelected = false } = props;
 
   // Keep track of whether the dropdown is open or not.
   const [isActive, setActive] = React.useState(false);
 
-  const dropdownClasses = generateClassList(isActive);
+  const dropdownClasses = generateClassList(isActive, isSelected);
 
   return (
     <div className="relative inline">
