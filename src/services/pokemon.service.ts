@@ -14,7 +14,7 @@ export const PokemonService = {
       // Artificial timeout for demonstration purposes
       setTimeout(() => {
         resolve(matchingPokemons);
-      }, 500);
+      }, 3000);
     });
   },
 };
